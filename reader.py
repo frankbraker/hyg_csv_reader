@@ -20,8 +20,8 @@ with open('hygfull.csv') as csv_file:
             if len(s) == 0 or s[0]==" ":
                 pass
             else:
-                if s.isprintable():
+                if s.isprintable() and ( float(row[9]) < 5.0 ):
                     # print(f'\t{row[0]}, {row[1]}, {row[2]}, {row[3]}, {row[4]}, {row[5]}, {row[6]}, {row[7]}, {row[8]}, {row[9]}, {row[10]}, {row[11]}, {row[12]}, {row[13]}.')
                     print(f'\tName = {row[6]},\tRA = {row[7]},\tDec = {row[8]},\tDistance = {row[9]},\tMagnitude = {row[10]},\t{row[11]}, {row[12]}, {row[13]}.')
             line_count += 1
-    print(f'Processed {line_count} lines.')
+    print(f'Processed {line_count} lines.  Above are closer than 5.0 light years distant.')
